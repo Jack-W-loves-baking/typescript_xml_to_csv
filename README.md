@@ -22,5 +22,5 @@ npm test -- --watch
 - Better UI. I would like to have a checkbox ticked besides the csv link once it has been clicked.
 - More Jest unit tests and module tests.
 - Create util to allow the user to bulk download all csv files.
-- Added index to throw message, so the user can quickly find out the issue.
-- Added a file select feature, currently, the loading test xml file is hard-coded as 'testfile.xml' in the public folder
+- Add an index into throw error message object, so the user can quickly find out the issue.
+- Add a file select feature, currently, the loading test xml file is hard-coded as 'testfile.xml' in the public folder
