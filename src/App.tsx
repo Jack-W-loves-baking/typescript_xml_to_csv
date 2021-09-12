@@ -2,18 +2,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// components
+// Components
 import Grid from '@material-ui/core/Grid';
 import TaskButton from './components/TaskButton';
 
-// styles
+// Styles
 import { makeStyles } from '@material-ui/core/styles';
 
-// utils
-import { parse } from 'fast-xml-parser';
-
-// hooks
+// Hooks
 import { useFetch } from './hooks/useFetch';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,12 +25,12 @@ function App() {
   if (response) {
     return (
       <Grid container className={classes.root} spacing={2}>
-      <Grid item xs={12}>
-        <TaskButton CSVIntervalData={response.getElementsByTagName('CSVIntervalData')[0].textContent}/>
+        <Grid item xs={12}>
+          <TaskButton CSVIntervalData={response.getElementsByTagName('CSVIntervalData')[0].textContent}/>
+        </Grid>
+        <Grid item xs={12}>
+        </Grid>
       </Grid>
-      <Grid item xs={12}>
-      </Grid>
-    </Grid>
     )
   }
 
