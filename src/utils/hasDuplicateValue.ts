@@ -12,6 +12,6 @@ export const hasDuplicateValue = (
   uniqueValue: string
 ) => {
   return (
-    arrayOfCsvArrayRowId.filter((rowId) => rowId == uniqueValue).length > 1
+    arrayOfCsvArrayRowId.filter((rowId) => rowId === uniqueValue).length > 1
   );
 };

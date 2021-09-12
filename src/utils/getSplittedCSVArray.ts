@@ -10,13 +10,13 @@ export const getSplittedCSVArray = (validArray: string[][]) => {
   // get all the index of rows whose id is 200.
   let indexesOf200Rows: number[] = [];
   validArray.filter((row: string[], index: number) => {
-    if (row[0] == "200") {
+    if (row[0] === "200") {
       indexesOf200Rows.push(index);
     }
   });
 
   // if a block of data only has one '200' row id, then we just return the whole array as csv data.
-  if (indexesOf200Rows.length == 1) return validArray;
+  if (indexesOf200Rows.length === 1) return validArray;
 
   // splice the array to generate blocks of csv data based on the index of '200' row id.
   for (let i = 0; i < indexesOf200Rows.length; i++) {
