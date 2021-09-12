@@ -24,13 +24,11 @@ const useStyles = makeStyles((theme) => ({
 function App() {
   const classes = useStyles();
   const {response} = useFetch('testfile.xml');
-  let temp = parse(response);
-  console.log(temp)
   if (response) {
     return (
       <Grid container className={classes.root} spacing={2}>
       <Grid item xs={12}>
-        <TaskButton CSVIntervalData={document.getElementsByTagName('CSVIntervalData').toString()}/>
+        <TaskButton CSVIntervalData={response.getElementsByTagName('CSVIntervalData')[0].textContent}/>
       </Grid>
       <Grid item xs={12}>
       </Grid>
