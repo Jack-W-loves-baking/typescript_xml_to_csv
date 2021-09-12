@@ -17,6 +17,11 @@ export const validateBody = (arrayOfCsvArrayRowId: string[]) => {
     throw "The second row id of CSV array has to be 200!";
   }
 
+  // The last row id cannot be '200';
+  if (arrayOfCsvArrayRowId[arrayOfCsvArrayRowId.length - 1] === "200") {
+    throw "CSV Array, each 200 row id needs to follow at least one 300 row id!";
+  }
+
   // Loop through the array of row id, checking
   // 1. if any row after 200 row id is not 300;
   // 2. if any row id is not 200 or 300.
