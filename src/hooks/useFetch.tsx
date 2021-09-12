@@ -21,7 +21,7 @@ export const useFetch = (url: string) => {
       }
     };
     fetchData();
-  }, []);
+  }, [url]);
 
   // finally we return all state values as an array
   return { response, error };
