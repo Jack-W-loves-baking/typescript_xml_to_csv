@@ -14,12 +14,14 @@ export const validateBody = (arrayOfCsvArrayRowId: string[]) => {
 
   // The second row id has to be '200';
   if (firstIndexOf200RowId !== 1) {
-    throw "The second row id of CSV array has to be 200!";
+    throw new Error("The second row id of CSV array has to be 200!");
   }
 
   // The last row id cannot be '200';
   if (arrayOfCsvArrayRowId[arrayOfCsvArrayRowId.length - 1] === "200") {
-    throw "CSV Array, each 200 row id needs to follow at least one 300 row id!";
+    throw new Error(
+      "CSV Array, each 200 row id needs to follow at least one 300 row id!"
+    );
   }
 
   // Loop through the array of row id, checking
@@ -27,14 +29,16 @@ export const validateBody = (arrayOfCsvArrayRowId: string[]) => {
   // 2. if any row id is not 200 or 300.
   for (let i = 1; i < arrayOfCsvArrayRowId.length - 1; i++) {
     if (
-      arrayOfCsvArrayRowId[i] == "200" &&
+      arrayOfCsvArrayRowId[i] === "200" &&
       arrayOfCsvArrayRowId[i + 1] !== "300"
     ) {
-      throw "CSV Array, each 200 row id needs to follow at least one 300 row id!";
+      throw new Error(
+        "CSV Array, each 200 row id needs to follow at least one 300 row id!"
+      );
     }
 
     if (allPossibleBodyRowIds.indexOf(arrayOfCsvArrayRowId[i]) < 0) {
-      throw "CSV Array has Invalid row ID!";
+      throw new Error("CSV Array has Invalid row ID!");
     }
   }
 };

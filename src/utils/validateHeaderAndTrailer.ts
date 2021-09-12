@@ -17,26 +17,28 @@ export const validateHeaderAndTrailer = (arrayOfCsvArrayRowId: string[]) => {
 
   // check if header row id is not found
   if (indexOfHeader < 0) {
-    throw "CSV Array has NO header!";
+    throw new Error("CSV Array has NO header!");
   }
 
   // check if trailer row id is not found
   if (indexOfTrailer < 0) {
-    throw "CSV Array has NO trailer!";
+    throw new Error("CSV Array has NO trailer!");
   }
 
   // check if header and trailer row id is unique
   if (hasDuplicateValue(arrayOfCsvArrayRowId, "100")) {
-    throw "CSV Array has Duplicate header row!";
+    throw new Error("CSV Array has Duplicate header row!");
   }
 
   if (hasDuplicateValue(arrayOfCsvArrayRowId, "900")) {
-    throw "CSV Array has Duplicate trailer row!";
+    throw new Error("CSV Array has Duplicate trailer row!");
   }
 
   // check if header row is at the first of array and trailer row is at the last.
   if (indexOfHeader > 0 || indexOfTrailer < arrayOfCsvArrayRowId.length - 1) {
-    throw "CSV Array should only use 100 as staring rowId, and 900 as ending row id.";
+    throw new Error(
+      "CSV Array should only use 100 as staring rowId, and 900 as ending row id."
+    );
   }
 
   return;
