@@ -1,37 +1,28 @@
-// Multivate dependencies
-import React from 'react';
-import ReactDOM from 'react-dom';
-
 // Components
-import Grid from '@material-ui/core/Grid';
-import TaskButton from './components/TaskButton';
-
-// Styles
-import { makeStyles } from '@material-ui/core/styles';
+import Box from "@material-ui/core/Box";
+import TaskManager from "./components/TaskManager";
 
 // Hooks
-import { useFetch } from './hooks/useFetch';
-
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-}));
+import { useFetch } from "./hooks/useFetch";
 
 function App() {
-  const classes = useStyles();
-  const {response} = useFetch('testfile.xml');
+  // deconstruct and fetch the xml object from xml file.
+  const { response } = useFetch("testfile.xml");
   if (response) {
     return (
-      <Grid container className={classes.root} spacing={2}>
-        <Grid item xs={12}>
-          <TaskButton CSVIntervalData={response.getElementsByTagName('CSVIntervalData')[0].textContent}/>
-        </Grid>
-        <Grid item xs={12}>
-        </Grid>
-      </Grid>
-    )
+      <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        minHeight="100vh"
+      >
+        <TaskManager
+          CSVIntervalData={
+            response.getElementsByTagName("CSVIntervalData")[0].textContent
+          }
+        />
+      </Box>
+    );
   }
 
   return <></>;

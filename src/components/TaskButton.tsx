@@ -1,18 +1,19 @@
-// Multivate dependencies
-import React from 'react';
-
 // Components
-import Button from '@material-ui/core/Button';
+import Button from "@material-ui/core/Button";
 
 // Types
-import {TaskButtonProps} from '../types/TaskButtonProps';
+import type { TaskButtonProps } from "../types/TaskProps";
 
-const TaskButton = ({CSVIntervalData} : TaskButtonProps) => {
-    return (
-        <Button variant="contained" color="primary">
-            Primary
-        </Button>
-    )
-}
+const TaskButton = ({
+  onClick,
+  buttonText,
+  color = "primary",
+}: TaskButtonProps) => {
+  return (
+    <Button variant="contained" color={color} onClick={onClick}>
+      {buttonText}
+    </Button>
+  );
+};
 
 export default TaskButton;
