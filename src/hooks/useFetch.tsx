@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export const useFetch = (url: string) => {
   // initial states we need, which are data, error and loading states.
@@ -9,16 +9,16 @@ export const useFetch = (url: string) => {
     // function responsible for making the network request and updating the relevant states
     const fetchData = async () => {
       try {
-        const resolvedData = await fetch(url),               
-              toString = await resolvedData.text(),
-              parser = new DOMParser(),
-              xmlDoc = parser.parseFromString(toString, "text/xml");
+        const resolvedData = await fetch(url),
+          toString = await resolvedData.text(),
+          parser = new DOMParser(),
+          xmlDoc = parser.parseFromString(toString, "text/xml");
         // once data is resolved we set the data and set loading to false
         setResponse(xmlDoc);
       } catch (error) {
         // if any error occurs we capture it in error state
         setError(error);
-      }   
+      }
     };
     fetchData();
   }, []);
