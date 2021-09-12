@@ -1,6 +1,7 @@
 1. How to run the project.
-   npm -i
-   npm -start
+-   npm i,
+-   npm start
+-   Open your localhost and click the button 'CLICK TO GENERATE' to see the CSV files
 
 check test coverage.
 npm test -- --watch
