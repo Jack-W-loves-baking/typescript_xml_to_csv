@@ -5,7 +5,6 @@ describe("Validate Header and Trailer ", () => {
   // arrange
   let mockRowIdArray = [];
 
-  // We should see a date converted to a timestamp
   it("Should throw no header error", () => {
     mockRowIdArray = ["300"];
     expect(() => validateHeaderAndTrailer(mockRowIdArray)).toThrow(
